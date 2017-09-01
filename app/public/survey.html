@@ -4,13 +4,11 @@
 	<meta charset="UTF-8">
 	<title>HomieFinder</title>
 
-	  <!-- Latest compiled and minified CSS & JS -->
+  <!-- Bootstrap CDN -->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  <!-- Font Awesome Glyphicons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   <!-- Chosen -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
@@ -110,7 +108,7 @@
 	</select>
 
 	<h3><strong>Question 8</strong></h3>
-	<h4> You enjoy sports so much that you will watch reruns of old games just because.</h4>
+	<h4> Pancakes > Waffles.</h4>
 	<select class="chosen-select" id="Q8">
 	  <option value=""></option>
 	  <option value="1">1</option>
@@ -121,7 +119,7 @@
 	</select>
 
 	<h3><strong>Question 9</strong></h3>
-	<h4> You enjoy sports so much that you will watch reruns of old games just because.</h4>
+	<h4> Trucks > Cars.</h4>
 	<select class="chosen-select" id="Q9">
 	  <option value=""></option>
 	  <option value="1">1</option>
@@ -132,7 +130,7 @@
 	</select>
 
 	<h3><strong>Question 10</strong></h3>
-	<h4> You enjoy sports so much that you will watch reruns of old games just because.</h4>
+	<h4> The New York Giants are the greatest team, ever!.</h4>
 	<select class="chosen-select" id="Q10">
 	  <option value=""></option>
 	  <option value="1">1</option>
@@ -141,6 +139,25 @@
       <option value="4">4</option>
       <option value="5">5</option>
 	</select>
+	<br>
+	<br>
+
+	<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"></button>
+
+</div>
+
+	<div class="modal">
+		<div class="modal-head">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h2 class="modal-top"><strong>Your New BFF is..</strong></h2>
+	</div>
+
+	<!-- Homie Match Info -->
+	<div class="modal-info">
+		<h2 id="homie-name"></h2>
+		<img id="homie-pic" src="">
+	</div>
+
 
 </body>
 </html>
