@@ -147,18 +147,100 @@
 </div>
 
 <!-- Show match using a modal -->
-
+<div id="homie-results" class="modal-fade modal-lg">
 	<div class="modal">
 		<div class="modal-head">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h2 class="modal-top"><strong>Your New BFF is..</strong></h2>
-	</div>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h2 class="modal-top"><strong>Your New BFF is..</strong></h2>
+		</div>
 
 	<!-- Homie Match Info -->
-	<div class="modal-info">
-		<h2 id="homie-name"></h2>
-		<img id="homie-pic" src="">
+		<div class="modal-info">
+			<h2 id="homie-name"></h2>
+			<img id="homie-pic" src="">
+		</div>
 	</div>
+</div>
+
+<!-- Write javascript for the questionaire and modal -->
+
+	<script type="text/javascript">
+	var config = {
+		".chosen-select": {},
+		".chosen-select-deselect": {
+			allow_single_deselect: true
+		},
+		".chosen-select-no-select": {
+			disable_search_threshold: 10
+		},
+		".chosen-select-no-results": {
+			no_results_text: "Gotta pick one idiot."
+		},
+		".chosen-select-width": {
+			width: "95%"
+		}
+	};
+	for (var selector in config) {
+		$(selector).chosen(config[selector]);
+	}
+
+	// grab the answers picked when submit is clicked
+	$("#submit").on("click", function(event) {
+		event.preventDefault();
+
+		function validateForm() {
+			var isValid = true;
+			$(".homie-form").each(function() {
+				if ($(this).val() === "") {
+					isValid = false;
+				}
+			});
+		$(".chosen-select").each(function() {
+			if ($(this).val() === "") {
+				isValid = false;
+			}
+		});
+		return isValid;
+		}
+
+	
+	// if every question is answered 
+	if (validateForm()) {
+		var homieData = {
+			name: $("#name").val(),
+			photo: $("#photo").val(),
+			score: [
+				$("#Q1").val(),
+				$("#Q2").val(),
+				$("#Q3").val(),
+				$("#Q4").val(),
+				$("#Q5").val(),
+				$("#Q6").val(),
+				$("#Q7").val(),
+				$("#Q8").val(),
+				$("#Q9").val(),
+				$("#Q10").val()
+			]
+		};
+
+	// make posts to homie API
+	$.post("/api/homies", homieData, function(data) {
+		$("#homie-name").text(homies.name);
+		$("#homie-pic").attr("src", homies.photo);
+
+	// show newBff in modal
+	$("#homie-results").modal("toggle");
+	});
+  } else {
+  	alert("Fill out every question or you'll never have any friends, ever!");
+  }
+	});
+	</script>
+
+
+
+
+
 
 
 </body>
