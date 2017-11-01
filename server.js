@@ -8,7 +8,7 @@ var app = express();
 
 var PORT = process.env.PORT || 3000;
 
-app.get("/survey", function(req, res) {
+app.get("/survey.html", function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/survey.html"));
 });
 
