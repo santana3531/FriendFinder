@@ -25,15 +25,14 @@
 	<h4><strong>Name </strong>(Required)</h4>
 	<input type="text" id="name" class="homie-form" required>
 	
-	<h4><strong>Photo</strong> (Required)</h4>
-	<input type="text" id="photo" class="homie-form" required>
+<!-- 	<h4><strong>Photo</strong> (Required)</h4>
+	<input type="text" id="photo" class="homie-form" required> -->
 
 	<hr>
 
 	<h3><strong>Question 1</strong></h3>
 	<h4> You enjoy sports so much that you will watch reruns of old games just because.</h4>
 	<select class="chosen-select" id="Q1">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -44,7 +43,6 @@
 	<h3><strong>Question 2</strong></h3>
 	<h4> Dogs > Cats.</h4>
 	<select class="chosen-select" id="Q2">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -55,7 +53,6 @@
 	<h3><strong>Question 3</strong></h3>
 	<h4> Dining out > Ordering in.</h4>
 	<select class="chosen-select" id="Q3">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -66,7 +63,6 @@
 	<h3><strong>Question 4</strong></h3>
 	<h4> Movies > TV Shows</h4>
 	<select class="chosen-select" id="Q4">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -77,7 +73,6 @@
 	<h3><strong>Question 5</strong></h3>
 	<h4> Liquor > Beer.</h4>
 	<select class="chosen-select" id="Q5">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -88,7 +83,6 @@
 	<h3><strong>Question 6</strong></h3>
 	<h4> Captain Crunch with Berries > Captain Crunch Original</h4>
 	<select class="chosen-select" id="Q6">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -99,7 +93,6 @@
 	<h3><strong>Question 7</strong></h3>
 	<h4> Fruit Loops > Fruity Pebbles</h4>
 	<select class="chosen-select" id="Q7">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -110,7 +103,6 @@
 	<h3><strong>Question 8</strong></h3>
 	<h4> Pancakes > Waffles.</h4>
 	<select class="chosen-select" id="Q8">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -121,7 +113,6 @@
 	<h3><strong>Question 9</strong></h3>
 	<h4> Trucks > Cars.</h4>
 	<select class="chosen-select" id="Q9">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -132,7 +123,6 @@
 	<h3><strong>Question 10</strong></h3>
 	<h4> The New York Giants are the greatest team, ever!.</h4>
 	<select class="chosen-select" id="Q10">
-	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -142,8 +132,10 @@
 	<br>
 	<br>
 
-	<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"></button>
-
+	<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
+<br>
+<br>
+<br>
 </div>
 
 <!-- Show match using a modal -->
@@ -174,10 +166,10 @@
 			disable_search_threshold: 10
 		},
 		".chosen-select-no-results": {
-			no_results_text: "Gotta pick one idiot."
+			no_results_text: "Gotta pick one."
 		},
 		".chosen-select-width": {
-			width: "95%"
+			width: "100%"
 		}
 	};
 	for (var selector in config) {

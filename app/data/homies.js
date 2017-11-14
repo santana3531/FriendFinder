@@ -5,7 +5,7 @@ var homies = [
     {
       name: "Hard Hat",
       photo: "https://randomuser.me/api/portraits/lego/4.jpg",
-      pts : [
+      pts: [
           "4",
           "2",
           "3",

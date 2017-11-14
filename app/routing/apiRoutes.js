@@ -1,4 +1,3 @@
-
 // link the homies!
 
 var homies = require("../data/homies");
@@ -21,7 +20,7 @@ app.post("/api/homies", function(req, res) {
 
 // // post/parse the submitted homie 
   var homieData = req.body;
-  var homieScore = homieData.scores;
+  var homieScores = homieData.pts;
   var totalPts = 0;
 
   // write for loop to run through all the homies in database
@@ -30,22 +29,22 @@ app.post("/api/homies", function(req, res) {
     totalPts = 0;
   
  // then for loop of all the points of da homies
-    for (var j = 0; j < homies[i].scores[j]; j++) {
+    for (var j = 0; j < homies[i].pts[j]; j++) {
 
-      ///  then calculate the points
-      totalPts += Math.abs(parseInt(homieScore[j]) - parseInt(homies[i].scores[j]));
+    ///  then calculate the points
+    totalPts += Math.abs(parseInt(homieScores[j]) - parseInt(homies[i].pts[j]));
    
    if (totalPts <= newBff.bffPts) {
     newBff.name = homies[i].name;
     newBff.photo = homies[i].photo;
     newBff.bffPts = totalPts;
-   }   
-    }
-  }
+  }   
+ }
+}
 // save the homie's into the homie's DB
   homies.push(homieData);
 
   res.json(newBff);
 
 });
-}
+};

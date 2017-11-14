@@ -19,7 +19,8 @@
   "homepage": "https://github.com/santana3531/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {}
 }
