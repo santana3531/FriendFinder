@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>HomieFinder</title>
+	<title>LegoFriendFinder</title>
 
   <!-- Bootstrap CDN -->
 
@@ -33,6 +33,7 @@
 	<h3><strong>Question 1</strong></h3>
 	<h4> You enjoy sports so much that you will watch reruns of old games just because.</h4>
 	<select class="chosen-select" id="Q1">
+	  <option value=""></option>	
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -43,6 +44,7 @@
 	<h3><strong>Question 2</strong></h3>
 	<h4> Dogs > Cats.</h4>
 	<select class="chosen-select" id="Q2">
+		<option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -53,6 +55,7 @@
 	<h3><strong>Question 3</strong></h3>
 	<h4> Dining out > Ordering in.</h4>
 	<select class="chosen-select" id="Q3">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -63,6 +66,7 @@
 	<h3><strong>Question 4</strong></h3>
 	<h4> Movies > TV Shows</h4>
 	<select class="chosen-select" id="Q4">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -83,6 +87,7 @@
 	<h3><strong>Question 6</strong></h3>
 	<h4> Captain Crunch with Berries > Captain Crunch Original</h4>
 	<select class="chosen-select" id="Q6">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -93,6 +98,7 @@
 	<h3><strong>Question 7</strong></h3>
 	<h4> Fruit Loops > Fruity Pebbles</h4>
 	<select class="chosen-select" id="Q7">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -103,6 +109,7 @@
 	<h3><strong>Question 8</strong></h3>
 	<h4> Pancakes > Waffles.</h4>
 	<select class="chosen-select" id="Q8">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -123,6 +130,7 @@
 	<h3><strong>Question 10</strong></h3>
 	<h4> The New York Giants are the greatest team, ever!.</h4>
 	<select class="chosen-select" id="Q10">
+	  <option value=""></option>
 	  <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -139,21 +147,23 @@
 </div>
 
 <!-- Show match using a modal -->
-<div id="homie-results" class="modal-fade modal-lg">
-	<div class="modal">
-		<div class="modal-head">
+<div id="homie-results" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+<!-- Homie Match Info -->
+		<div class="modal-content">
+			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
 			<h2 class="modal-top"><strong>Your New BFF is..</strong></h2>
 		</div>
-
-	<!-- Homie Match Info -->
-		<div class="modal-info">
+	
+		<div class="modal-body">
 			<h2 id="homie-name"></h2>
-			<img id="homie-pic" src="">
+			<img id="homie-pic" src="" alt="">
 		</div>
 	</div>
 </div>
-
+</div>
 <!-- Write javascript for the questionaire and modal -->
 
 	<script type="text/javascript">
@@ -169,9 +179,10 @@
 			no_results_text: "Gotta pick one."
 		},
 		".chosen-select-width": {
-			width: "100%"
+			width: "95%"
 		}
 	};
+
 	for (var selector in config) {
 		$(selector).chosen(config[selector]);
 	}
@@ -180,6 +191,8 @@
 	$("#submit").on("click", function(event) {
 		event.preventDefault();
 
+
+		// Validate form
 		function validateForm() {
 			var isValid = true;
 			$(".homie-form").each(function() {
@@ -187,6 +200,7 @@
 					isValid = false;
 				}
 			});
+
 		$(".chosen-select").each(function() {
 			if ($(this).val() === "") {
 				isValid = false;
@@ -198,10 +212,11 @@
 	
 	// if every question is answered 
 	if (validateForm()) {
+
 		var homieData = {
 			name: $("#name").val(),
 			photo: $("#photo").val(),
-			score: [
+			pts: [
 				$("#Q1").val(),
 				$("#Q2").val(),
 				$("#Q3").val(),
@@ -217,8 +232,10 @@
 
 	// make posts to homie API
 	$.post("/api/homies", homieData, function(data) {
-		$("#homie-name").text(homies.name);
-		$("#homie-pic").attr("src", homies.photo);
+
+
+		$("#homie-name").text(data.name);
+		$("#homie-pic").attr("src", data.photo);
 
 	// show newBff in modal
 	$("#homie-results").modal("toggle");
