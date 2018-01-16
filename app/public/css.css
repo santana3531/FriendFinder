@@ -1,3 +1,7 @@
 body {
 	background-image: url("/home-bg.jpg");
 }
+
+h1 {
+	color: blue;
+}
