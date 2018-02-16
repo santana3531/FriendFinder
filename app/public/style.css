@@ -1,9 +1,9 @@
-/*.jumbotron {
+.jumbotron {
 	width: auto;
 	height: auto;
 	text-align: center;
-	background-color: grey;
+	/*background-color: grey;*/
 	color: #F41230;
 	padding-bottom: 650px;
 	background-image: url("legopeeps.jpg");
-}*/
+}
