@@ -1,7 +1,7 @@
 /*====== Survey CSS====== */
 
 @media only screen and (max-width: 569px) {
-/*    .scrolling-content-questions {
+    .scrolling-content-questions {
         position: relative;
         width: 100%;
         height: 1000px;
@@ -10,7 +10,7 @@
         text-align: center;
         background-image: url("../assets/space.jpg");
         padding: 50px;
-    }*/
+    }
     .scrolling-content {
         position: relative;
         width: 100%;
